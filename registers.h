@@ -45,5 +45,7 @@ struct {
         };
         word hl;
     };
+    word pc;
+    word sp;
 } registers;
 #endif //GAMEBOY_REGISTERS_H
