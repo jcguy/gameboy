@@ -53,6 +53,9 @@ int main() {
     for (;;) {
         byte *opcode = &cart[registers.pc];
         if (instructions[*opcode].function) {
+            printf("PC: 0x%04X\t", registers.pc);
+            printf("op:\t");
+            print_instruction(opcode);
             instructions[*opcode].function(opcode);
         } else {
             printf("Unimplemented function at: 0x%04X:\t", registers.pc);

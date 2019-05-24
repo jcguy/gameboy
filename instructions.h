@@ -24,13 +24,16 @@ struct instruction {
 void nop(byte const *i) { registers.pc++; }
 
 // 0x21
-void ld_hl_nn(byte const *i) { registers.hl = registers.sp + *((word *) (i + 1)); registers.pc++; }
+void ld_hl_nn(byte const *i) { registers.hl = registers.sp + *((word *) (i + 1)); registers.pc += 2; }
 
 // 0xAF
 void xor_a(byte const *i) { registers.a ^= registers.a; registers.pc++; }
 
 // 0xC3
 void jp_nn(byte const *i) { registers.pc = *((word *) (i + 1)); }
+
+// 0xDF
+void rst_18(byte const *i) { registers.pc += 1; };
 
 const struct instruction instructions[256] = {
         {"NOP",             0, nop},              // 0x00
@@ -66,7 +69,7 @@ const struct instruction instructions[256] = {
         {"LD E, 0x%02X",    1, NULL},             // 0x1e
         {"RR A",            0, NULL},             // 0x1f
         {"JR NZ, 0x%02X",   1, NULL},             // 0x20
-        {"LD HL, 0x%04X",   2, ld_hl_nn},             // 0x21
+        {"LD HL, 0x%04X",   2, ld_hl_nn},         // 0x21
         {"LDI (HL), A",     0, NULL},             // 0x22
         {"INC HL",          0, NULL},             // 0x23
         {"INC H",           0, NULL},             // 0x24
@@ -208,7 +211,7 @@ const struct instruction instructions[256] = {
         {"XOR H",           0, NULL},             // 0xac
         {"XOR L",           0, NULL},             // 0xad
         {"XOR (HL)",        0, NULL},             // 0xae
-        {"XOR A",           0, xor_a},             // 0xaf
+        {"XOR A",           0, xor_a},            // 0xaf
         {"OR B",            0, NULL},             // 0xb0
         {"OR C",            0, NULL},             // 0xb1
         {"OR D",            0, NULL},             // 0xb2
@@ -228,7 +231,7 @@ const struct instruction instructions[256] = {
         {"RET NZ",          0, NULL},             // 0xc0
         {"POP BC",          0, NULL},             // 0xc1
         {"JP NZ 0x%04X",    2, NULL},             // 0xc2
-        {"JP 0x%04X",       2, jp_nn},             // 0xc3
+        {"JP 0x%04X",       2, jp_nn},            // 0xc3
         {"CALL NZ 0x%04X",  2, NULL},             // 0xc4
         {"PUSH BC",         0, NULL},             // 0xc5
         {"ADD A, 0x%02X",   1, NULL},             // 0xc6
@@ -256,7 +259,7 @@ const struct instruction instructions[256] = {
         {"CALL C, 0x%04X",  2, NULL},             // 0xdc
         {"XX",              0, NULL},             // 0xdd
         {"SBC A, 0x%02X",   1, NULL},             // 0xde
-        {"RST 18",          0, NULL},             // 0xdf
+        {"RST 18",          0, rst_18},           // 0xdf
         {"LDH (0x%02X), A", 1, NULL},             // 0xe0
         {"POP HL",          0, NULL},             // 0xe1
         {"LDH (C), A",      0, NULL},             // 0xe2

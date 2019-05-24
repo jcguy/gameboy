@@ -9,6 +9,7 @@
 #define GAMEBOY_REGISTERS_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "typedefs.h"
 
@@ -47,5 +48,10 @@ struct {
     };
     word pc;
     word sp;
+
+    bool fz;
+    bool fn;
+    bool fh;
+    bool fc;
 } registers;
 #endif //GAMEBOY_REGISTERS_H

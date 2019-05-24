@@ -1,0 +1,141 @@
+@database GBE.guide
+
+@node "Main" "GBE - GameBoy / GameBoy Color emulator"
+
+  GBE 0.4.8b (000917)
+
+  Written by Steven Fuller and Chuck Mason
+
+  Ported by Mathias "AmiDog" Roslund 1999-2000
+
+ @{" Introduction          " link "introduction"} - What is this?
+ @{" Requirements          " link "requirements"} - What does it require?
+ @{" Features              " link "features"} - What can it do?
+
+ @{" Installation          " link "installation"} - How to install?
+ @{" Usage                 " link "usage"} - How do I use it?
+ @{" Options               " link "options"} - What does these do?
+
+ @{" Disclaimer            " link "disclaimer"} - Who's responsible?
+
+ @{" History               " link "history"} - What's new?
+ @{" Contact               " link "contact"} - How to contact me?
+
+ Visit the homepage at http://www.amidog.com/emu/
+
+@endnode
+
+@node "introduction" "GBE - Introduction"
+
+ This is a GameBoy / GameBoy Color emulator written by
+ Steven Fuller and Chuck Mason.
+
+@endnode
+
+@node "requirements" "GBE - Requirements"
+
+ Hardware:
+
+  * Amiga with a PowerPC board
+  * AGA or CGFX
+  * 8 MB of RAM
+  * OS 3.0
+
+ Software:
+
+  * WarpUP v4.0
+  * lowlevel.library for joystick support
+
+@endnode
+
+@node "features" "GBE - Features"
+
+ * All gameboy z80 opcodes are emulated.
+ * Color gameboy support.
+ * Sound support.
+ * mbc1, 2, 3 and 5.
+ * plus other stuff.
+
+@endnode
+
+@node "installation" "GBE - Installation"
+
+ Just copy it to any place on your HD.
+
+@endnode
+
+@node "usage" "GBE - Usage"
+
+ * Starting GBE:
+
+  GBE <OPTIONS> <ROMFILE> (write just GBE for a list of supported options)
+
+ * Keyboard keys:
+
+  HELP - Saves a screenshot in PCX format to the current directory
+  ESC - Quits GBE
+  Q (TAB) - Select
+  W (ENTER) - Start
+  A (CONTROL) - B Button
+  S (LALT) - A Button
+  Arrow keys - Left, Right, Up, Down
+
+ * CD32 pad buttons:
+
+  Green - Select
+  Yellow - Start
+  Red - B Button
+  Blue - A Button
+  Directional buttons - Left, Right, Up, Down
+
+@endnode
+
+@node "options" "GBE - Options"
+
+ JOYPAD/S     : use CD32 joypad (def: keyboard).
+ CGFX/S       : use CyberGraphics instead of direct gfxmem access (def: off).
+ REQUESTER/S  : use screenmode requester (def: CGFX BestModeID/PAL Lores).
+ NOSTALGIA/S  : save the screenshot in Nostalgia:samples/ (def: current directory).
+ TRIPLE/S     : use triple buffering (def: off).
+
+@endnode
+
+@node "disclaimer" "GBE - Disclaimer"
+
+ Remember! You use this piece of software at your own risk!
+ I can never be held responsible for any sort of damage caused
+ to your software or hardware by the use of this product!
+
+ Bugreports and suggestions might be sent to one of my addresses.
+
+@endnode
+
+@node "contact" "GBE - Contact"
+
+ Bugreports, suggestions, comments or anything else you may
+ want to contact me about can preferably be sent by e-mail to:
+
+ gbe@amidog.com
+ 
+ You may however also contact me by normal mail:
+
+ Mathias Roslund
+ Sveav. 2b, nb
+ S-702 14 Orebro
+ Sweden
+
+@endnode
+
+@node "history" "GBE - History"
+
+ 0.4.8  -000911
+        -Updated the Amiga version to the latest Linux one, this release adds much better
+         compatibility as well as sound.
+
+ 0.4.8b -000917
+        -Removed an unused buffer from the video code.
+        -Fixed RAM loading and saving.
+        -Added triple buffering.
+
+
+@endnode
